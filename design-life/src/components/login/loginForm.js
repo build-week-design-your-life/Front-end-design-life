@@ -8,37 +8,40 @@ function LoginForm() {
     <Form>
       <h1>Hello, and welcome to the registration form</h1>
       <label>Please enter your username</label>
-      <Field name="name" type="text" />
+      <Field name="username" type="text" />
       <label> Please enter your password</label>
       <Field name="password" type="password" />
+      <button type="submit">Submit</button>
     </Form>
   );
 }
 
 const FormikLoginForm = withFormik({
-  mapPropsToValues({ name, password }) {
+  mapPropsToValues({ username, password }) {
     return {
-      name: name || "",
+      username: username || "",
       password: password || ""
     };
   },
 
-  validationSchema: Yup.object.shape({
-    name: Yup.string()
-      //.name("Name not valid")
-      .required("A Login name is required")
-      .min(6, "A username must be at least 6 characters long"),
-    password: Yup.string()
-      //.password("Password not valid, must be a string")
-      .min(8, "A password must be at leat 8 characters long")
-      .required("A password is required to continue")
-  }),
+  // Not working, probably just a typo or Yup vs yup issue.  Play with later once login working
+
+//   validationSchema: Yup.object.shape({
+//     name: Yup.string()
+//       .required("A Login name is required")
+//       .min(6, "A username must be at least 6 characters long"),
+//     password: Yup.string()
+//       .min(8, "A password must be at leat 8 characters long")
+//       .required("A password is required to continue")
+//   }),
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
     axiosWithAuth()
-      .post("URL", values)
+      .post("https://hr-bw3.herokuapp.com/api/auth/register", values)
+      //  I think user needs to register, then login, instead of registering and being pushed to the secret pages?
       .then(res => {
         // TAKE THIS OUT AFTER ITS WORKING
+        console.log("axios post res")
         console.log(res);
         localStorage.setItem("token", res.data.token);
         props.history.push("/design");
@@ -47,6 +50,7 @@ const FormikLoginForm = withFormik({
       })
       .catch(reject => {
         // TAKE THIS OUT AFTER ITS WORKING - SECURITY RISK
+        console.log("axios post rejection")
         console.log(reject)
       });
   }
