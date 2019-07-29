@@ -46,7 +46,8 @@ const FormikLoginForm = withFormik({
         setSubmitting(false);
       })
       .catch(reject => {
-        //console.log(reject)
+        // TAKE THIS OUT AFTER ITS WORKING - SECURITY RISK
+        console.log(reject)
       });
   }
 })(LoginForm);

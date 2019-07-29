@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import "./App.css";
 import FormikLoginForm from "./components/login/loginForm";
-import Design from "./components/design"
+import Design from "./components/design";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
 }
 
 // sensitve console logs to take out
-// login
-//login form/formik
+// login x 2
+//login form/formik x 2
 
 export default App;

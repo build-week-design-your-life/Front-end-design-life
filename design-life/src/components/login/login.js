@@ -18,6 +18,10 @@ const Login = props => {
             localStorage.setItem("token", res.data.token)
             props.history.push("/design")
         })
+        .catch(rej => {
+            console.log(rej)
+            props.history.push("/")
+        })
     }
     return <FormikLoginForm />
 }
