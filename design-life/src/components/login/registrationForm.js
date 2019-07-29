@@ -3,10 +3,10 @@ import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axiosWithAuth from "../security/AxiosWithAuth";
 
-function LoginForm() {
+function RegistrationForm() {
   return (
     <Form>
-      <h1>Hello, and welcome to the Login form</h1>
+      <h1>Hello, and welcome to the registration form</h1>
       <label>Please enter your username</label>
       <Field name="username" type="text" />
       <label> Please enter your password</label>
@@ -16,7 +16,7 @@ function LoginForm() {
   );
 }
 
-const FormikLoginForm = withFormik({
+const FormikRegistrationForm = withFormik({
   mapPropsToValues({ username, password }) {
     return {
       username: username || "",
@@ -36,39 +36,24 @@ const FormikLoginForm = withFormik({
 //   }),
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
-      axiosWithAuth()
-      .get("https://hr-bw3.herokuapp.com/api/auth/login", values)
-      .then(res=>{
-          //TAKE THIS OUT AFTER ITS WORKING
-          console.log(res)
-          localStorage.setItem("token", res.data.token)
-          props.history.push("/design")
+    axiosWithAuth()
+      .post("https://hr-bw3.herokuapp.com/api/auth/register", values)
+      //  I think user needs to register, then login, instead of registering and being pushed to the secret pages?
+      .then(res => {
+        // TAKE THIS OUT AFTER ITS WORKING
+        console.log("axios post res")
+        console.log(res);
+        //localStorage.setItem("token", res.data.token);
+        props.history.push("/login");
+        resetForm();
+        setSubmitting(false);
       })
-      .catch(rej => {
-          console.log(rej)
-          props.history.push("/")
-      })
-  },
+      .catch(reject => {
+        // TAKE THIS OUT AFTER ITS WORKING - SECURITY RISK
+        console.log("axios post rejection")
+        console.log(reject)
+      });
+  }
+})(RegistrationForm);
 
-
-    // login = event => {
-    //     event.preventDefaul();
-    //     axiosWithAuth()
-    //     .get("https://hr-bw3.herokuapp.com/api/auth/login", credentials)
-    //     .then(res=>{
-    //         //TAKE THIS OUT AFTER ITS WORKING
-    //         console.log(res)
-    //         localStorage.setItem("token", res.data.token)
-    //         props.history.push("/design")
-    //     })
-    //     .catch(rej => {
-    //         console.log(rej)
-    //         props.history.push("/")
-    //     })
-    // }
-
-
-
-})(LoginForm);
-
-export default FormikLoginForm;
+export default FormikRegistrationForm;
