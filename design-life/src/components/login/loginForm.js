@@ -2,12 +2,11 @@ import React from "react";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axiosWithAuth from "../security/AxiosWithAuth";
-import axios from "axios";
 
 function LoginForm() {
   return (
     <Form>
-        <h1>Hello, and welcome to the registration form</h1>
+      <h1>Hello, and welcome to the registration form</h1>
       <label>Please enter your username</label>
       <Field name="name" type="text" />
       <label> Please enter your password</label>
@@ -40,9 +39,9 @@ const FormikLoginForm = withFormik({
       .post("URL", values)
       .then(res => {
         // TAKE THIS OUT AFTER ITS WORKING
-        console.log(res)
-        localStorage.setItem("token", res.data.token)
-        props.history.push("/design")
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        props.history.push("/design");
         resetForm();
         setSubmitting(false);
       })
