@@ -1,11 +1,10 @@
-// import React, {useState} from "react";
-// import axiosWithAuth from "../security/AxiosWithAuth"
-// import FormikLoginForm from "../login/loginForm"
+import React, {useState} from "react";
+import axiosWithAuth from "../security/AxiosWithAuth"
+import FormikLoginForm from "./registrationForm"
 
 // In testing - login form that assumes token is already set on local storage
 
-{
-  /*
+
 const Login = props => {
     const [credentials, setCredentials] = useState({});
     login = event => {
@@ -35,5 +34,4 @@ const login = () => {
         })
 }
 
-export default Login; */
-}
+export default Login
