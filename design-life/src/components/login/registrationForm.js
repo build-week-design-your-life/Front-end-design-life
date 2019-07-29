@@ -38,12 +38,11 @@ const FormikRegistrationForm = withFormik({
   handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
     axiosWithAuth()
       .post("https://hr-bw3.herokuapp.com/api/auth/register", values)
-      //  I think user needs to register, then login, instead of registering and being pushed to the secret pages?
       .then(res => {
         // TAKE THIS OUT AFTER ITS WORKING
         console.log("axios post res")
         console.log(res);
-        //localStorage.setItem("token", res.data.token);
+        //localStorage.setItem("token", "");
         props.history.push("/login");
         resetForm();
         setSubmitting(false);

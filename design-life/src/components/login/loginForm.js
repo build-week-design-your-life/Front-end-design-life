@@ -26,49 +26,49 @@ const FormikLoginForm = withFormik({
 
   // Not working, probably just a typo or Yup vs yup issue.  Play with later once login working
 
-//   validationSchema: Yup.object.shape({
-//     name: Yup.string()
-//       .required("A Login name is required")
-//       .min(6, "A username must be at least 6 characters long"),
-//     password: Yup.string()
-//       .min(8, "A password must be at leat 8 characters long")
-//       .required("A password is required to continue")
-//   }),
+  //   validationSchema: Yup.object.shape({
+  //     name: Yup.string()
+  //       .required("A Login name is required")
+  //       .min(6, "A username must be at least 6 characters long"),
+  //     password: Yup.string()
+  //       .min(8, "A password must be at leat 8 characters long")
+  //       .required("A password is required to continue")
+  //   }),
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
-      axiosWithAuth()
-      .get("https://hr-bw3.herokuapp.com/api/auth/login", values)
-      .then(res=>{
-          //TAKE THIS OUT AFTER ITS WORKING
-          console.log(res)
-          localStorage.setItem("token", res.data.token)
-          props.history.push("/design")
+    axiosWithAuth()
+      .post("https://hr-bw3.herokuapp.com/api/auth/login", values)
+      .then(res => {
+        //TAKE THIS OUT AFTER ITS WORKING
+        console.log("axios get res");
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        resetForm();
+        setSubmitting(false);
+        props.history.push("/design")
       })
       .catch(rej => {
-          console.log(rej)
-          props.history.push("/")
-      })
-  },
+        console.log("axios get reject");
+        console.log(rej);
+        props.history.push("/")
+      });
+  }
 
-
-    // login = event => {
-    //     event.preventDefaul();
-    //     axiosWithAuth()
-    //     .get("https://hr-bw3.herokuapp.com/api/auth/login", credentials)
-    //     .then(res=>{
-    //         //TAKE THIS OUT AFTER ITS WORKING
-    //         console.log(res)
-    //         localStorage.setItem("token", res.data.token)
-    //         props.history.push("/design")
-    //     })
-    //     .catch(rej => {
-    //         console.log(rej)
-    //         props.history.push("/")
-    //     })
-    // }
-
-
-
+  // login = event => {
+  //     event.preventDefaul();
+  //     axiosWithAuth()
+  //     .get("https://hr-bw3.herokuapp.com/api/auth/login", credentials)
+  //     .then(res=>{
+  //         //TAKE THIS OUT AFTER ITS WORKING
+  //         console.log(res)
+  //         localStorage.setItem("token", res.data.token)
+  //         props.history.push("/design")
+  //     })
+  //     .catch(rej => {
+  //         console.log(rej)
+  //         props.history.push("/")
+  //     })
+  // }
 })(LoginForm);
 
 export default FormikLoginForm;
