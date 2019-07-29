@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import "./App.css";
-import Login from "./components/login/loginForm";
+import FormikLoginForm from "./components/login/loginForm";
+import design from "./components/design"
 
 function App() {
   return (
