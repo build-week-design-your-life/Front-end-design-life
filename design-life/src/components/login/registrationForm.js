@@ -3,14 +3,16 @@ import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axiosWithAuth from "../security/AxiosWithAuth";
 
-function RegistrationForm() {
+function RegistrationForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form>
-      <h1>Hello, and welcome to the registration form</h1>
+      <h1>Hello, you must be new here - welcome to the Registration form</h1>
       <label>Please enter your username</label>
       <Field name="username" type="text" />
+      {touched.username && errors.username && <p>Sorry! {errors.username}</p>}
       <label> Please enter your password</label>
       <Field name="password" type="password" />
+      {touched.password && errors.password && <p>Sorry! {errors.password}</p>}
       <button type="submit">Submit</button>
     </Form>
   );
@@ -24,7 +26,7 @@ const FormikRegistrationForm = withFormik({
     };
   },
 
-  validationScheme: Yup.object().shape({
+  validationSchema: Yup.object().shape({
     username: Yup.string()
       .required("A Login name is required")
       .min(6, "A username must be at least 6 characters long"),

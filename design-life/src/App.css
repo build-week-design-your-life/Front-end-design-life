@@ -31,3 +31,17 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navLinks {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 20px auto;
+  justify-content: space-around;
+  max-width: 800px;
+  background-color: white;
+  color: black;
+}
