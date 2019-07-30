@@ -1,0 +1,18 @@
+# add this so that netlify knows where your project begins. This folder
+# should be the directory where your package.json lives.
+# the publish directory is the folder where the production build lives.
+# build command for netlify is npm run build or yarn build.
+
+[build]
+  base = "Front-end-design-life/design-life/"
+  publish = "Front-end-design-life/design-life/build/"
+  command = "yarn build"
+
+  # A basic redirect rule
+  # For use with react router. Keeps user from leaving index.html when
+  # refreshing or pasting different routes into the browser.
+
+ [[redirect]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
