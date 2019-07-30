@@ -24,16 +24,14 @@ const FormikLoginForm = withFormik({
     };
   },
 
-  // Not working, probably just a typo or Yup vs yup issue.  Play with later once login working
-
-  //   validationSchema: Yup.object.shape({
-  //     name: Yup.string()
-  //       .required("A Login name is required")
-  //       .min(6, "A username must be at least 6 characters long"),
-  //     password: Yup.string()
-  //       .min(8, "A password must be at leat 8 characters long")
-  //       .required("A password is required to continue")
-  //   }),
+  validationScheme: Yup.object().shape({
+    username: Yup.string()
+      .required("A Login name is required")
+      .min(6, "A username must be at least 6 characters long"),
+    password: Yup.string()
+      .min(8, "A password must be at leat 8 characters long")
+      .required("A password is required to continue")
+  }),
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
     axiosWithAuth()
@@ -45,12 +43,12 @@ const FormikLoginForm = withFormik({
         localStorage.setItem("token", res.data.token);
         resetForm();
         setSubmitting(false);
-        props.history.push("/design")
+        props.history.push("/design");
       })
       .catch(rej => {
         console.log("axios get reject");
         console.log(rej);
-        props.history.push("/")
+        props.history.push("/");
       });
   }
 
