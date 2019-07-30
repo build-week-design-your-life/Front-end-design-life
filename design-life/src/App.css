@@ -33,15 +33,32 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .navLinks {
   display: flex;
   flex-flow: row nowrap;
-  margin: 20px auto;
-  justify-content: space-around;
-  max-width: 800px;
+  margin: 20px auto 60px auto;
+  justify-content: space-between;
+  max-width: 1200px;
   background-color: white;
   color: black;
+  font-size: 1.2rem;
+}
+
+.navLink {
+  width: 20%;
+}
+
+input {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 20px;
+  width: 30%;
+  margin: 20px auto;
+}
+
+label {
+  font-size: 1.5rem;
 }

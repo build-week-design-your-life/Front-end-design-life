@@ -15,21 +15,23 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <div className="navLinks">
         <Link
           to="https://design-your-life-home.netlify.com/"
-          className="navLinks"
+          className="navLink"
         >
           Home Page
         </Link>
-        <Link to="/design" className="navLinks">
+        <Link to="/design" className="navLink">
           Your Journal Entries
         </Link>
-        <Link to="/" className="navLinks">
+        <Link to="/" className="navLink">
           Registration
         </Link>
-        <Link to="/login" className="navLinks">
+        <Link to="/login" className="navLink">
           Login
         </Link>
+        </div>
         <Route exact path="/" component={FormikRegistrationForm} />
         <Route exact path="/login" component={FormikLoginForm} />
         <PrivateRoute exact path="/design" component={Design} />
