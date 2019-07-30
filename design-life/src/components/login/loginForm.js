@@ -41,21 +41,23 @@ const FormikLoginForm = withFormik({
   // until the user logs in, so there's nothing to check if the user is new or not until
   // they've already logged in
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
+  handleSubmit(values, { resetForm, setErrors, props }) {
     axiosWithAuth()
       .post("https://hr-bw3.herokuapp.com/api/auth/login", values)
       .then(res => {
         //TAKE THIS OUT AFTER ITS WORKING
-        //console.log("axios get res");
-        //console.log(res);
+        // console.log("axios login get res");
+        // console.log(res);
+        // console.log("axios login get res - user ID");
+        // console.log(res.data.user.id);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userID", res.data.user.id)
         resetForm();
-        setSubmitting(false);
         props.history.push("/design");
       })
       .catch(rej => {
-        //console.log("axios get reject");
-        //console.log(rej);
+        // console.log("axios get reject");
+        // console.log(rej);
         //props.history.push("/");
       });
   }

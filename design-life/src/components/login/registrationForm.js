@@ -35,16 +35,14 @@ const FormikRegistrationForm = withFormik({
       .required("A password is required to continue")
   }),
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
+  handleSubmit(values, { resetForm, setErrors, props }) {
     axiosWithAuth()
       .post("https://hr-bw3.herokuapp.com/api/auth/register", values)
       .then(res => {
         // console.log("axios post res");
         // console.log(res);
-
         props.history.push("/login");
         resetForm();
-        setSubmitting(false);
       })
       .catch(reject => {
         // TAKE THIS OUT AFTER ITS WORKING - SECURITY RISK
