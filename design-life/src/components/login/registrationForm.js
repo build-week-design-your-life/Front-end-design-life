@@ -37,18 +37,17 @@ const FormikRegistrationForm = withFormik({
     axiosWithAuth()
       .post("https://hr-bw3.herokuapp.com/api/auth/register", values)
       .then(res => {
-        // TAKE THIS OUT AFTER ITS WORKING
-        console.log("axios post res");
-        console.log(res);
-        //localStorage.setItem("token", "");
+        // console.log("axios post res");
+        // console.log(res);
+
         props.history.push("/login");
         resetForm();
         setSubmitting(false);
       })
       .catch(reject => {
         // TAKE THIS OUT AFTER ITS WORKING - SECURITY RISK
-        console.log("axios post rejection");
-        console.log(reject);
+        //  console.log("axios post rejection");
+        //  console.log(reject);
       });
   }
 })(RegistrationForm);

@@ -38,35 +38,19 @@ const FormikLoginForm = withFormik({
       .post("https://hr-bw3.herokuapp.com/api/auth/login", values)
       .then(res => {
         //TAKE THIS OUT AFTER ITS WORKING
-        console.log("axios get res");
-        console.log(res);
+        //console.log("axios get res");
+        //console.log(res);
         localStorage.setItem("token", res.data.token);
         resetForm();
         setSubmitting(false);
         props.history.push("/design");
       })
       .catch(rej => {
-        console.log("axios get reject");
-        console.log(rej);
+        //console.log("axios get reject");
+        //console.log(rej);
         props.history.push("/");
       });
   }
-
-  // login = event => {
-  //     event.preventDefaul();
-  //     axiosWithAuth()
-  //     .get("https://hr-bw3.herokuapp.com/api/auth/login", credentials)
-  //     .then(res=>{
-  //         //TAKE THIS OUT AFTER ITS WORKING
-  //         console.log(res)
-  //         localStorage.setItem("token", res.data.token)
-  //         props.history.push("/design")
-  //     })
-  //     .catch(rej => {
-  //         console.log(rej)
-  //         props.history.push("/")
-  //     })
-  // }
 })(LoginForm);
 
 export default FormikLoginForm;
