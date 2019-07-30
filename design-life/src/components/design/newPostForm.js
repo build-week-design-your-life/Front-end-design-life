@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axiosWithAuth from "../security/AxiosWithAuth";
@@ -27,11 +27,13 @@ const NewPostFormikForm = withFormik({
     console.log(typeof userID);
     console.log("journal title");
     console.log(journal_title);
-    console.log("userID after conversion")
+    userID = Number(userID)
+    console.log("after conversion to number")
     console.log(typeof userID)
+    console.log("after typeof conversion")
+    console.log(userID)
     return {
-      //user_id: userID || "",
-      user_id: 1,
+      user_id: userID,
       journal_content: journal_content || "",
       journal_title: journal_title || "",
       journal_type: journal_type || "daily",
@@ -52,7 +54,7 @@ const NewPostFormikForm = withFormik({
     console.log("values being handed to axios");
     console.log(values);
     axiosWithAuth()
-      .post("https://hr-bw3.herokuapp.com/api/journals", values)
+      .post("https://hr-bw3.herokuapp.com/api/journals/add", values)
       .then(res => {
         console.log("user POST res");
         console.log(res);
