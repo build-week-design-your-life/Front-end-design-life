@@ -7,7 +7,6 @@ import PrivateRoute from "./components/security/PrivateRoute";
 import FormikLoginForm from "./components/login/loginForm";
 
 function App() {
-
   return (
     <div className="App">
       <Router>
@@ -27,6 +26,7 @@ function App() {
           <Link to="/design" className="navLink">
             Your Journal Entries
           </Link>
+          {/* <button onClick={()=>{localStorage.removeItem("token"); localStorage.removeItem("userID")} }>Log out</button> */}
         </div>
         <Route exact path="/" component={FormikRegistrationForm} />
         <Route exact path="/login" component={FormikLoginForm} />

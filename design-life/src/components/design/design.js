@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../security/AxiosWithAuth";
-import NewPostFormikForm from "./newPostForm"
+import NewPostFormikForm from "./newPostForm";
 
 function Design() {
-
   const [userID, setUserID] = useState();
 
   useEffect(() => {
@@ -27,12 +26,8 @@ function Design() {
 
   return (
     <>
-    <h2>
-      Hello!  Your daily and weekly posts are below
-    </h2>
-    {console.log("whats being passed to formik forms from design file")}
-    {console.log(userID)}
-    <NewPostFormikForm userID = {userID} />
+      <h2>Hello! Your daily and weekly posts are below</h2>
+      <NewPostFormikForm userID={userID} />
     </>
   );
 }
