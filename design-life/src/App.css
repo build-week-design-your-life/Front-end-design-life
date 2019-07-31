@@ -60,7 +60,7 @@ input {
   display: flex;
   flex-flow: row nowrap;
   height: 20px;
-  width: 30%;
+  width: 90%;
   margin: 20px auto;
   align-items: flex-start;
   justify-content: flex-start;
@@ -146,4 +146,10 @@ button {
 body {
   background-color: rgb(248, 237, 250);
   color: rgb(8, 115, 129);
+}
+
+.formStyles {
+  display: flex;
+  flex-flow: row nowrap;
+justify-content: space-around;
 }

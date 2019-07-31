@@ -56,17 +56,17 @@ function Design() {
                   <h4>Date of Entry: {entry.journal_date}</h4>
                   <h4>My reflection on my week: {entry.journal_content}</h4>
                   <h4>How I felt: {entry.journal_title}</h4>
-                  
+
                   <div className="buttonStyle">
-                  <button onClick={() => deletePost(entry.id)}>Delete</button>
-                  <button
-                    onClick={() => {
-                      toggleReplaceForm();
-                      setUpdatedEntry(entry);
-                    }}
-                  >
-                    Edit Post?
-                  </button>
+                    <button onClick={() => deletePost(entry.id)}>Delete</button>
+                    <button
+                      onClick={() => {
+                        toggleReplaceForm();
+                        setUpdatedEntry(entry);
+                      }}
+                    >
+                      Edit Post?
+                    </button>
                   </div>
                 </div>
               ) : (
@@ -75,17 +75,17 @@ function Design() {
                   <h4>Date of Entry: {entry.journal_date}</h4>
                   <h4>My daily activity: {entry.journal_content}</h4>
                   <h4>How I felt: {entry.journal_title}</h4>
-                  
+
                   <div className="buttonStyle">
-                  <button onClick={() => deletePost(entry.id)}>Delete</button>
-                  <button
-                    onClick={() => {
-                      toggleReplaceForm();
-                      setUpdatedEntry(entry);
-                    }}
-                  >
-                    Edit Post?
-                  </button>
+                    <button onClick={() => deletePost(entry.id)}>Delete</button>
+                    <button
+                      onClick={() => {
+                        toggleReplaceForm();
+                        setUpdatedEntry(entry);
+                      }}
+                    >
+                      Edit Post?
+                    </button>
                   </div>
                 </div>
               )}
@@ -95,6 +95,7 @@ function Design() {
           <h1> Loading, Please wait...</h1>
         )}
       </div>
+      <div className="formStyles">
       <NewPostFormikForm setUpdatedJournal={setUpdatedJournal} />
       {toggleUpdate ? (
         <UpdateFormikForm
@@ -103,6 +104,7 @@ function Design() {
           updatedEntry={updatedEntry}
         />
       ) : null}
+      </div>
     </>
   );
 }
