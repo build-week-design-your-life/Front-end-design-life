@@ -93,7 +93,20 @@ label {
   font-size: 1.2rem;
 }
 
-.diaryEntry {
+.diaryEntries {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
+  margin: 0 auto;
+width: 45%;
+  border: 1px solid black;
+  justify-content: space-around;
+}
+
+.allEntries{
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 80%;
+  justify-content: space-around;
+  border: 5px solid red;
+  margin: 0 auto;
 }

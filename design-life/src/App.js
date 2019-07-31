@@ -39,5 +39,7 @@ function App() {
 // sensitve console logs to take out
 // login x 2
 //login form/formik x 2
+// new post form
+//update form
 
 export default App;
