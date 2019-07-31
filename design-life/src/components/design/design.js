@@ -52,10 +52,11 @@ function Design() {
             separate parts of the users screen */}
               {entry.journal_type === "weekly" ? (
                 <div className="weeklyEntry">
-                  <h2>Weekly entry</h2>
+                  <h2>Weekly Reflection Log</h2>
                   <h4>Date of Entry: {entry.journal_date}</h4>
-                  <h4>Journal Title: {entry.journal_title}</h4>
-                  <h4>Journal Content: {entry.journal_content}</h4>
+                  <h4>My reflection on my week: {entry.journal_content}</h4>
+                  <h4>How I felt: {entry.journal_title}</h4>
+                  
                   <div className="buttonStyle">
                   <button onClick={() => deletePost(entry.id)}>Delete</button>
                   <button
@@ -70,10 +71,11 @@ function Design() {
                 </div>
               ) : (
                 <div className="dailyEntry">
-                  <h2>Daily entry</h2>
+                  <h2>Daily Activity Log</h2>
                   <h4>Date of Entry: {entry.journal_date}</h4>
-                  <h4>Journal Title: {entry.journal_title}</h4>
-                  <h4>Journal Content: {entry.journal_content}</h4>
+                  <h4>My daily activity: {entry.journal_content}</h4>
+                  <h4>How I felt: {entry.journal_title}</h4>
+                  
                   <div className="buttonStyle">
                   <button onClick={() => deletePost(entry.id)}>Delete</button>
                   <button

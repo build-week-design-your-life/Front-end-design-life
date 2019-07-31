@@ -103,7 +103,6 @@ label {
   flex-flow: row wrap;
   max-width: 90%;
   justify-content: space-around;
-  border: 5px solid red;
   margin: 0 auto;
 }
 
@@ -115,6 +114,7 @@ label {
   justify-content: flex-start;
   background-color: green;
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .weeklyEntry {
@@ -125,15 +125,16 @@ label {
   justify-content: flex-end;
   background-color: blue;
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 button {
   height: 80px;
   width: 80px;
   border-radius: 50%;
-background-color: rgb(161, 235, 241);
-color: rgb(127, 12, 156);
-font-size: 1.1rem;
+  background-color: rgb(161, 235, 241);
+  color: rgb(127, 12, 156);
+  font-size: 1.1rem;
 }
 
 .buttonStyle {

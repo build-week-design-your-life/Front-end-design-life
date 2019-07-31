@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axiosWithAuth from "../security/AxiosWithAuth";
-import moment from "moment"
+import moment from "moment";
 
 function NewPost() {
   return (
     <Form>
       <h1>What are your thoughts for today?</h1>
-      <label>Title</label>
-      <Field name="journal_title" type="text" className="journalTitle" />
-      <label>Dear Diary, </label>
+      <label>What did you do today?</label>
       <Field name="journal_content" type="text" className="journalContent" />
-      <label>Is this a daily or weekly diary entry? </label>
+      <label>How excited were you?</label>
+      <Field name="journal_title" type="text" className="journalTitle" />
+      <label>Is this a daily activity log or a weekly reflection? </label>
       <Field component="select" name="journal_type" className="typeSelection">
         <option value="daily">Daily</option>
         <option value="weekly">Weekly</option>
@@ -30,7 +30,7 @@ const NewPostFormikForm = withFormik({
       journal_content: journal_content || "",
       journal_title: journal_title || "",
       journal_type: journal_type || "daily",
-      journal_date: moment().format('MMMM Do YYYY, h:mm:ss a')
+      journal_date: moment().format("MMMM Do YYYY, h:mm:ss a")
     };
   },
 
