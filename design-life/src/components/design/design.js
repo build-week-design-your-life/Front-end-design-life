@@ -19,8 +19,18 @@ function Design() {
       });
   }, [updatedJournal]);
 
-  // updatedJournal hook is set by the axios POST when it fires, useEffect just
-  // listens to it so it will re-render the page on each POST request
+const deletePost = (id) => {
+  axiosWithAuth()
+    .delete(`https://hr-bw3.herokuapp.com/api/journals/${id}`)
+    .then(res=>{
+      console.log("delete request res", res)
+      setUpdatedJournal(res.data.message)
+      setUpdatedJournal("")
+    })
+}
+
+  // updatedJournal hook is sent to newPostForm, is set by the axios POST when it fires,
+  //  useEffect just listens to it so it will re-render the page on each POST request
 
   return (
     <>
@@ -32,6 +42,7 @@ function Design() {
       {userJournalEntries ? (
         userJournalEntries.map(entry => (
           <>
+          {console.log(entry)}
             {/* This internal ternary checks if the journal type is a 
             weekly or daily entry, so they can be flexboxed into
             separate parts of the users screen */}
@@ -41,6 +52,8 @@ function Design() {
                 <h4>Journal type: {entry.journal_type}</h4>
                 <h4>Journal Title: {entry.journal_title}</h4>
                 <h4>Journal Content: {entry.journal_content}</h4>
+                {console.log(entry.id)}
+                <button onClick={()=>deletePost(entry.id)}>Delete</button>
               </div>
             ) : (
               <div className="diaryEntry">
@@ -48,6 +61,8 @@ function Design() {
                 <h4>Journal type: {entry.journal_type}</h4>
                 <h4>Journal Title: {entry.journal_title}</h4>
                 <h4>Journal Content: {entry.journal_content}</h4>
+                {console.log(entry.id)}
+                <button onClick={()=>deletePost(entry.id)}>Delete</button>
               </div>
             )}
           </>

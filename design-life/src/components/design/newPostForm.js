@@ -3,19 +3,11 @@ import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axiosWithAuth from "../security/AxiosWithAuth";
 
-function NewPost(props) {
-//   console.log("what NewPost function sees as props", props);
-//   const [newUser, setNewUser] = useState();
-//   useEffect(() => {
-//     setNewUser(props);
-//   }, [newUser]);
-//   console.log("new user", newUser);
-
+function NewPost() {
   return (
     <Form>
       <h1>What are your thoughts for today?</h1>
       <label>Title</label>
-
       <Field name="journal_title" type="text" className="journalTitle" />
       <label>Dear Diary, </label>
       <Field name="journal_content" type="text" className="journalContent" />
@@ -41,37 +33,30 @@ const NewPostFormikForm = withFormik({
     };
   },
 
-  // validationSchema: Yup.object().shape({
-  //   username: Yup.string()
-  //     .required("A Login name is required")
-  //     .min(6, "A username must be at least 6 characters long"),
-  //   password: Yup.string()
-  //     .min(8, "A password must be at leat 8 characters long")
-  //     .required("A password is required to continue")
-  // }),
-
   handleSubmit(values, { resetForm, props }) {
-    console.log("props being handed to axios");
-    console.log(props);
+    // console.log("props being handed to axios");
+    // console.log(props);
     axiosWithAuth()
       .post("https://hr-bw3.herokuapp.com/api/journals/add", values)
       .then(res => {
-        console.log("user POST res");
-        console.log(res);
-        {/*Fairly ingenius, if I do say so myself.  This just listens for the servers
+        // console.log("user POST res");
+        // console.log(res);
+        {
+          /*Fairly ingenius, if I do say so myself.  This just listens for the server's
         response, "Good Work", then updates a hook in the Design file that the axios.get useEffect
-        is listening to.  The second setUpdatedJournal clears it out so it can listen for a second
-        post from the user */}
-        props.setUpdatedJournal(res.data.message)
-        props.setUpdatedJournal("")
+        is listening to.  The second props.setUpdatedJournal clears it out so it can listen for a second
+        post from the user */
+        }
+        props.setUpdatedJournal(res.data.message);
+        props.setUpdatedJournal("");
         resetForm();
       })
       .catch(reject => {
-        // TAKE THIS OUT AFTER ITS WORKING - SECURITY RISK
-        console.log("values being rejected by axios");
-        console.log(values);
-        console.log("axios post rejection");
-        console.log(reject);
+        // CONSOLE LOG THIS OUT AFTER ITS WORKING - SECURITY RISK
+        // console.log("values being rejected by axios");
+        // console.log(values);
+        // console.log("axios post rejection");
+        // console.log(reject);
       });
   }
 })(NewPost);
