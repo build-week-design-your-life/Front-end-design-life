@@ -17,7 +17,7 @@ function ActivityForm(){
       <Field name="journal_date" type="text" />
       <button type="submit">Submit</button>
     </Form>
-  )
+  )  
 }
 const FormikActivityForm = withFormik({
   mapPropsToValues({ content, title,
