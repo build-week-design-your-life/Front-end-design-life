@@ -37,19 +37,19 @@ function Design() {
             {console.log("entries", entry)}
             {/* FLEX BOX H2 INTO RIGHT/LEFT */}
             {entry.journal_type === "weekly" ? (
-              <>
+              <div className = "diaryEntry">
                 <h2>Weekly entries</h2>
                 <h4>Journal type: {entry.journal_type}</h4>
                 <h4>Journal Title: {entry.journal_title}</h4>
                 <h4>Journal Content: {entry.journal_content}</h4>
-              </>
+              </div>
             ) : (
-              <>
+              <div className = "diaryEntry">
                 <h2>Daily entries</h2>
                 <h4>Journal type: {entry.journal_type}</h4>
                 <h4>Journal Title: {entry.journal_title}</h4>
                 <h4>Journal Content: {entry.journal_content}</h4>
-              </>
+              </div>
             )}
           </>
         ))

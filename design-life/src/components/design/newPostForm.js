@@ -19,7 +19,8 @@ function NewPost(props) {
       <Field name="journal_title" type="text" className="journalTitle" />
       <label>Dear Diary, </label>
       <Field name="journal_content" type="text" className="journalContent" />
-      <Field component="select" name="journal_type">
+      <label>Is this a daily or weekly diary entry? </label>
+      <Field component="select" name="journal_type" className="typeSelection">
         <option value="daily">Daily</option>
         <option value="weekly">Weekly</option>
       </Field>
