@@ -26,7 +26,8 @@ function App() {
           <Link to="/design" className="navLink">
             Your Journal Entries
           </Link>
-          {/* <button onClick={()=>{localStorage.removeItem("token"); localStorage.removeItem("userID")} }>Log out</button> */}
+          {/* <button onClick={()=>{localStorage.removeItem("token")} }>Log out</button> */}
+          {/* Log out button, not MVP so just tinkering with it */}
         </div>
         <Route exact path="/" component={FormikRegistrationForm} />
         <Route exact path="/login" component={FormikLoginForm} />

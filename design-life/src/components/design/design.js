@@ -43,6 +43,12 @@ function Design() {
       <h2>Hello! Your daily and weekly posts are below</h2>
       {/* This ternary checks if the axios GET request has resolved;
       if not, Loading Please wait, if so, continue to second ternary */}
+
+      {/* I know for best practices I should split this off into different components - pass
+      userJournalEntries into a component, map over it, then send the mapped array to weekly vs daily components,
+      but I'm just so proud of this ternary I wrote.  A ternary with a mapping function, with another ternary inside it!
+      Its the coolest batch of code I've ever written */}
+      
       <div className="allEntries">
         {userJournalEntries ? (
           userJournalEntries.map(entry => (
