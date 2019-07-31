@@ -38,12 +38,12 @@ const NewPostFormikForm = withFormik({
     // console.log(journal_title);
     console.log("what formik sees as userID coming in", userID);
     console.log("what formik sees userID as typeof", userID);
-    // userID = Number(userID);
-    // console.log("What typeof Formik sees after conversion", typeof userID);
-    // console.log("What Formik sees userID as after conversion", userID);
+    userID = Number(userID);
+    console.log("What typeof Formik sees after conversion", typeof userID);
+    console.log("What Formik sees userID as after conversion", userID);
 
     return {
-      user_id: userID,
+      user_id: 1,
       journal_content: journal_content || "",
       journal_title: journal_title || "",
       journal_type: journal_type || "daily",
