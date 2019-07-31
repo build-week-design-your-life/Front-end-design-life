@@ -33,18 +33,7 @@ const NewPostFormikForm = withFormik({
   mapPropsToValues({ journal_content, journal_title, journal_type, userID }) {
     //   console.log("What formik sees as props")
     //   console.log(props)
-    // console.log("What Formik sees as userID");
-    // console.log(typeof userID);
-    // console.log("journal title");
-    // console.log(journal_title);
-    console.log("what formik sees as userID coming in", userID);
-    console.log("what formik sees userID as typeof", userID);
-    userID = Number(userID);
-    console.log("What typeof Formik sees after conversion", typeof userID);
-    console.log("What Formik sees userID as after conversion", userID);
-
     return {
-      user_id: 1,
       journal_content: journal_content || "",
       journal_title: journal_title || "",
       journal_type: journal_type || "daily",
@@ -61,15 +50,20 @@ const NewPostFormikForm = withFormik({
   //     .required("A password is required to continue")
   // }),
 
-  handleSubmit(values, { resetForm }) {
-    console.log("values being handed to axios");
-    console.log(values);
+  handleSubmit(values, { resetForm, props }) {
+    console.log("props being handed to axios");
+    console.log(props);
     axiosWithAuth()
       .post("https://hr-bw3.herokuapp.com/api/journals/add", values)
       .then(res => {
         console.log("user POST res");
         console.log(res);
-        //props.history.push("/design");
+        {/*Fairly ingenius, if I do say so myself.  This just listens for the servers
+        response, "Good Work", then updates a hook in the Design file that the axios.get useEffect
+        is listening to.  The second setUpdatedJournal clears it out so it can listen for a second
+        post from the user */}
+        props.setUpdatedJournal(res.data.message)
+        props.setUpdatedJournal("")
         resetForm();
       })
       .catch(reject => {
