@@ -31,3 +31,65 @@
     transform: rotate(360deg);
   }
 }
+body {   
+  background: #8b6d9b;
+  font-family: Inconsolata, monospace;
+  color: #350209;
+}
+
+form {
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  margin: 40px auto;
+  background: rgb(228, 223, 230);
+  padding: 15px;
+  box-shadow: 0 19px 38px rgba(107, 16, 16, 0.3), 0 15px 12px rgba(148, 53, 53, 0.22)
+}
+
+label {
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+legend {
+  font-size: 1.5rem;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 4px;
+  max-width: 458px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid #962424;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+button {
+  background: linear-gradient(109.1deg, #8878c4 0%, #7349d4ea 100%);
+  box-shadow: 0px 10px 20px rgba(67, 58, 77, 0.952);
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  width: 150px;
+  height: 30px;
+}
+button[disabled] {
+  opacity: 0.5;
+}
+
+fieldset {
+  width: 100%;
+  border: 0px;
+}
+.member-list{
+  background: rgb(228, 223, 230);
+  display: flex;
+  justify-content: space-around;
+}
