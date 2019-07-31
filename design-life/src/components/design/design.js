@@ -52,11 +52,11 @@ function Design() {
             separate parts of the users screen */}
               {entry.journal_type === "weekly" ? (
                 <div className="weeklyEntry">
-                  <h2>Weekly entries</h2>
-                  <h4>Journal type: {entry.journal_type}</h4>
+                  <h2>Weekly entry</h2>
+                  <h4>Date of Entry: {entry.journal_date}</h4>
                   <h4>Journal Title: {entry.journal_title}</h4>
                   <h4>Journal Content: {entry.journal_content}</h4>
-
+                  <div className="buttonStyle">
                   <button onClick={() => deletePost(entry.id)}>Delete</button>
                   <button
                     onClick={() => {
@@ -64,15 +64,17 @@ function Design() {
                       setUpdatedEntry(entry);
                     }}
                   >
-                    Update this post?
+                    Edit Post?
                   </button>
+                  </div>
                 </div>
               ) : (
                 <div className="dailyEntry">
-                  <h2>Daily entries</h2>
-                  <h4>Journal type: {entry.journal_type}</h4>
+                  <h2>Daily entry</h2>
+                  <h4>Date of Entry: {entry.journal_date}</h4>
                   <h4>Journal Title: {entry.journal_title}</h4>
                   <h4>Journal Content: {entry.journal_content}</h4>
+                  <div className="buttonStyle">
                   <button onClick={() => deletePost(entry.id)}>Delete</button>
                   <button
                     onClick={() => {
@@ -80,8 +82,9 @@ function Design() {
                       setUpdatedEntry(entry);
                     }}
                   >
-                    Update this post?
+                    Edit Post?
                   </button>
+                  </div>
                 </div>
               )}
             </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axiosWithAuth from "../security/AxiosWithAuth";
+import moment from "moment"
 
 function NewPost() {
   return (
@@ -29,7 +30,7 @@ const NewPostFormikForm = withFormik({
       journal_content: journal_content || "",
       journal_title: journal_title || "",
       journal_type: journal_type || "daily",
-      journal_date: Date.now()
+      journal_date: moment().format('MMMM Do YYYY, h:mm:ss a')
     };
   },
 
