@@ -47,7 +47,7 @@ const UpdateFormikForm = withFormik({
       id: props.updatedEntry.id,
       journal_content: journal_content || "",
       journal_title: journal_title || "",
-      journal_type: journal_type || "daily",
+      journal_type: journal_type || "daily"
     };
   },
 
