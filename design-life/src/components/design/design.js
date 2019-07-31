@@ -73,7 +73,6 @@ function Design() {
                   <h4>Journal type: {entry.journal_type}</h4>
                   <h4>Journal Title: {entry.journal_title}</h4>
                   <h4>Journal Content: {entry.journal_content}</h4>
-
                   <button onClick={() => deletePost(entry.id)}>Delete</button>
                   <button
                     onClick={() => {
@@ -94,6 +93,7 @@ function Design() {
       <NewPostFormikForm setUpdatedJournal={setUpdatedJournal} />
       {toggleUpdate ? (
         <UpdateFormikForm
+          toggleReplaceForm={toggleReplaceForm}
           setUpdatedJournal={setUpdatedJournal}
           updatedEntry={updatedEntry}
         />

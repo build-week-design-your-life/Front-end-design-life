@@ -55,6 +55,7 @@ const UpdateFormikForm = withFormik({
           props.setUpdatedJournal(res.data.statusText);
           props.setUpdatedJournal("");
           resetForm();
+          props.toggleReplaceForm();
         })
         .catch(reject => {
           // CONSOLE LOG THIS OUT AFTER ITS WORKING - SECURITY RISK
