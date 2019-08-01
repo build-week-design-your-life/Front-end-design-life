@@ -15,7 +15,8 @@ function App() {
             href="https://design-your-life-home.netlify.com/"
             className="navLink"
           >
-          Home Page</a>
+            Home Page
+          </a>
           <Link to="/" className="navLink">
             Registration
           </Link>
