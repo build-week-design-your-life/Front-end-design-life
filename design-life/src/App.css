@@ -52,6 +52,10 @@ a:visited {
   text-decoration: none;
 }
 
+.styleForms {
+  color: white;
+}
+
 .navLink {
   width: 20%;
 }
@@ -60,10 +64,9 @@ input {
   display: flex;
   flex-flow: row nowrap;
   height: 20px;
-  width: 90%;
+  width: 30%;
   margin: 20px auto;
-  align-items: flex-start;
-  justify-content: flex-start;
+
   font-size: 1.1rem;
 }
 
@@ -129,9 +132,9 @@ label {
 }
 
 button {
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
+  height: 50px;
+  width: 90px;
+  border-radius: 15%;
   background-color: rgb(161, 235, 241);
   color: rgb(127, 12, 156);
   font-size: 1.1rem;
@@ -144,12 +147,8 @@ button {
 }
 
 body {
-  background-color: rgb(248, 237, 250);
+  background-image: url("./images/Kouen.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: rgb(8, 115, 129);
-}
-
-.formStyles {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
 }
