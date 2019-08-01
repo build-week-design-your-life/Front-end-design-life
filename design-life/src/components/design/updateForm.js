@@ -9,19 +9,19 @@ function UpdatePost(...props) {
   return (
     <Form>
       <h1>What do you want to replace?</h1>
-      <label>Title</label>
-      <Field
-        name="journal_title"
-        type="text"
-        placeholder={props[0].updatedEntry.journal_title}
-        className="journalTitle"
-      />
-      <label>Dear Diary, </label>
+      <label>What did you do today?</label>
       <Field
         name="journal_content"
         type="text"
         placeholder={props[0].updatedEntry.journal_content}
         className="journalContent"
+      />
+      <label>How excited were you?</label>
+      <Field
+        name="journal_title"
+        type="text"
+        placeholder={props[0].updatedEntry.journal_title}
+        className="journalTitle"
       />
       <label>Is this a daily or weekly diary entry? </label>
       <Field
