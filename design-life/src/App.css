@@ -52,12 +52,14 @@ a:visited {
   justify-content: space-around;
   max-width: 100%;
   background-color: #e2e7e9;
+  height: 40px;
 }
 
 .navLink {
   font-size: 1.2rem;
   text-decoration: none;
   color: #004d1a;
+
 }
 
 .navLink:hover {
@@ -147,6 +149,11 @@ button {
   background-color: #e2e7e9;
   color: rgb(127, 12, 156);
   font-size: 1.1rem;
+}
+
+button:focus {
+  background: yellow;
+  border: 2px solid red;
 }
 
 button:hover {

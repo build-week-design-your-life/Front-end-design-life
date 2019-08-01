@@ -43,7 +43,8 @@ const NewPostFormikForm = withFormik({
         // console.log("user POST res");
         // console.log(res);
         {
-          /*Fairly ingenius, if I do say so myself.  This just listens for the server's
+          /*Fairly ingenius, if I do say so myself.  Since the backend server isn't sending back a new
+          array of the data, I needed another method to re-render the screen.  This just listens for the server's
         response, "Good Work", then updates a hook in the Design file that the axios.get useEffect
         is listening to.  The second props.setUpdatedJournal clears it out so it can listen for a second
         post from the user */

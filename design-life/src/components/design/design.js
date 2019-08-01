@@ -103,6 +103,7 @@ function Design() {
         )}
       </div>
       <div className="formStyles">
+        {/* Toggles newpost vs edit post based on hook true/false boolean */}
         {toggleUpdate ? (
           <UpdateFormikForm
             toggleReplaceForm={toggleReplaceForm}
