@@ -31,3 +31,125 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.navLinks {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 20px auto 60px auto;
+
+  justify-content: space-between;
+  max-width: 1200px;
+
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+.navLink {
+  width: 20%;
+}
+
+input {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 20px;
+  width: 90%;
+  margin: 20px auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1.1rem;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+.hideMe {
+  display: none;
+}
+
+.journalContent {
+  height: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.typeSelection {
+  height: 30px;
+  width: 100px;
+  font-size: 1.2rem;
+}
+
+.diaryEntries {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  width: 15%;
+  border: 1px solid black;
+  justify-content: space-around;
+}
+
+.allEntries {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 90%;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.dailyEntry {
+  border: 3px solid green;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  background-color: green;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.weeklyEntry {
+  border: 3px solid blue;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  background-color: blue;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+button {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: rgb(161, 235, 241);
+  color: rgb(127, 12, 156);
+  font-size: 1.1rem;
+}
+
+.buttonStyle {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+body {
+  background-color: rgb(248, 237, 250);
+  color: rgb(8, 115, 129);
+}
+
+.formStyles {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}

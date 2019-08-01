@@ -3,14 +3,16 @@ import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axiosWithAuth from "../security/AxiosWithAuth";
 
-function RegistrationForm() {
+function RegistrationForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form>
-      <h1>Hello, and welcome to the registration form</h1>
+      <h1>Hello, you must be new here - welcome to the Registration form</h1>
       <label>Please enter your username</label>
       <Field name="username" type="text" />
+      {touched.username && errors.username && <p>Sorry! {errors.username}</p>}
       <label> Please enter your password</label>
       <Field name="password" type="password" />
+      {touched.password && errors.password && <p>Sorry! {errors.password}</p>}
       <button type="submit">Submit</button>
     </Form>
   );
@@ -24,33 +26,28 @@ const FormikRegistrationForm = withFormik({
     };
   },
 
-  // Not working, probably just a typo or Yup vs yup issue.  Play with later once login working
+  validationSchema: Yup.object().shape({
+    username: Yup.string()
+      .required("A Login name is required")
+      .min(6, "A username must be at least 6 characters long"),
+    password: Yup.string()
+      .min(8, "A password must be at leat 8 characters long")
+      .required("A password is required to continue")
+  }),
 
-//   validationSchema: Yup.object.shape({
-//     name: Yup.string()
-//       .required("A Login name is required")
-//       .min(6, "A username must be at least 6 characters long"),
-//     password: Yup.string()
-//       .min(8, "A password must be at leat 8 characters long")
-//       .required("A password is required to continue")
-//   }),
-
-  handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
+  handleSubmit(values, { resetForm, setErrors, props }) {
     axiosWithAuth()
       .post("https://hr-bw3.herokuapp.com/api/auth/register", values)
       .then(res => {
-        // TAKE THIS OUT AFTER ITS WORKING
-        console.log("axios post res")
-        console.log(res);
-        //localStorage.setItem("token", "");
+        // console.log("axios post res");
+        // console.log(res);
         props.history.push("/login");
         resetForm();
-        setSubmitting(false);
       })
       .catch(reject => {
         // TAKE THIS OUT AFTER ITS WORKING - SECURITY RISK
-        console.log("axios post rejection")
-        console.log(reject)
+        //  console.log("axios post rejection");
+        //  console.log(reject);
       });
   }
 })(RegistrationForm);
