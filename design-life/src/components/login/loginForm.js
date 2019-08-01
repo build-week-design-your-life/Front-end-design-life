@@ -11,10 +11,14 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
       </h1>
       <label>Please enter your username</label>
       <Field name="username" type="text" />
-      {touched.username && errors.username && <p>You must forgotten something. {errors.username}</p>}
+      {touched.username && errors.username && (
+        <p>You must forgotten something. {errors.username}</p>
+      )}
       <label> Please enter your password</label>
       <Field name="password" type="password" />
-      {touched.password && errors.password && <p>You must forgotten something. {errors.password}</p>}
+      {touched.password && errors.password && (
+        <p>You must forgotten something. {errors.password}</p>
+      )}
       <button type="submit">Submit</button>
     </Form>
   );
@@ -51,7 +55,7 @@ const FormikLoginForm = withFormik({
         // console.log("axios login get res - user ID");
         // console.log(res.data.user.id);
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("userID", res.data.user.id)
+        localStorage.setItem("userID", res.data.user.id);
         resetForm();
         props.history.push("/design");
       })

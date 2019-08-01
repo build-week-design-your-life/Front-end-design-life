@@ -7,7 +7,7 @@ function UpdatePost(...props) {
   // console.log("props from updated form", props)
   // console.log("props.updatedForm", props[0].updatedEntry)
   return (
-    <Form>
+    <Form className="styleForms">
       <h1>What do you want to replace?</h1>
       <label>What did you do today?</label>
       <Field

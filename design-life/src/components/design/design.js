@@ -103,14 +103,15 @@ function Design() {
         )}
       </div>
       <div className="formStyles">
-        
         {toggleUpdate ? (
           <UpdateFormikForm
             toggleReplaceForm={toggleReplaceForm}
             setUpdatedJournal={setUpdatedJournal}
             updatedEntry={updatedEntry}
           />
-        ) : <NewPostFormikForm setUpdatedJournal={setUpdatedJournal} />}
+        ) : (
+          <NewPostFormikForm setUpdatedJournal={setUpdatedJournal} />
+        )}
       </div>
     </>
   );

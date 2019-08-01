@@ -6,7 +6,7 @@ import moment from "moment";
 
 function NewPost() {
   return (
-    <Form>
+    <Form className="styleForms">
       <h1>What are your thoughts for today?</h1>
       <label>What did you do today?</label>
       <Field name="journal_content" type="text" className="journalContent" />
