@@ -19,7 +19,7 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
       {touched.password && errors.password && (
         <p>You must forgotten something. {errors.password}</p>
       )}
-      <button type="submit">Submit</button>
+      <button className="loginButton" type="submit">Submit</button>
     </Form>
   );
 }

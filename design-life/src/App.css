@@ -36,18 +36,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.navLinks {
-  display: flex;
-  flex-flow: row nowrap;
-  margin: 20px auto 60px auto;
-
-  justify-content: space-between;
-  max-width: 1200px;
-
-  color: white;
-  font-size: 1.2rem;
-  text-decoration: none;
-}
 a:visited {
   text-decoration: none;
 }
@@ -56,8 +44,27 @@ a:visited {
   color: white;
 }
 
+.navLinks {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 auto;
+  padding: 40px 0px;
+  justify-content: space-around;
+  max-width: 100%;
+  background-color: #e2e7e9;
+}
+
 .navLink {
-  width: 20%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #004d1a;
+}
+
+.navLink:hover {
+  color: white;
+  background-color: #d0d8db;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 input {
@@ -115,9 +122,10 @@ label {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
-  background-color: green;
+  background-color: #004d1a;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding: 20px 20px;
 }
 
 .weeklyEntry {
@@ -126,18 +134,24 @@ label {
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
-  background-color: blue;
+  background-color: rgb(39, 39, 116);
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding: 20px 20px;
 }
 
 button {
   height: 50px;
   width: 90px;
   border-radius: 15%;
-  background-color: rgb(161, 235, 241);
+  background-color: #e2e7e9;
   color: rgb(127, 12, 156);
   font-size: 1.1rem;
+}
+
+button:hover {
+  color: white;
+  background-color: #d0d8db;
 }
 
 .buttonStyle {
@@ -151,4 +165,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: rgb(8, 115, 129);
+}
+
+.loginButton {
+  background-color: white;
+  color: #75328a;
+}
+
+.loginButton:hover {
+  background-color: #d0d8db;
+  color: white;
 }

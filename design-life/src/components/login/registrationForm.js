@@ -13,7 +13,7 @@ function RegistrationForm({ values, errors, touched, isSubmitting }) {
       <label> Please enter your password</label>
       <Field name="password" type="password" />
       {touched.password && errors.password && <p>Sorry! {errors.password}</p>}
-      <button type="submit">Submit</button>
+      <button className="loginButton" type="submit">Submit</button>
     </Form>
   );
 }
