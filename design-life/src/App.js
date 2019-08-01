@@ -11,12 +11,11 @@ function App() {
     <div className="App">
       <Router>
         <div className="navLinks">
-          <Link
-            to="https://design-your-life-home.netlify.com/"
+          <a
+            href="https://design-your-life-home.netlify.com/"
             className="navLink"
           >
-            Home Page
-          </Link>
+          Home Page</a>
           <Link to="/" className="navLink">
             Registration
           </Link>
